@@ -12,6 +12,12 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
+	<!-- 配置JNDI数据源 -->
+	<bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/jdbc/TestDB</value>
+		</property>
+	</bean>
 	<!-- BoneCP configuration -->
 	<bean id="boneCPDataSource" class="com.jolbox.bonecp.BoneCPDataSource"
 		destroy-method="close" scope="singleton">
@@ -28,7 +34,7 @@
 	</bean>
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dbcpDataSource" />
+		<property name="dataSource" ref="jndiDataSource" />
 		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

@@ -19,6 +19,8 @@ import com.xiebiao.example.service.UserService;
 @Controller
 public class UserController {
 	@Autowired
+	private org.springframework.jndi.JndiObjectFactoryBean jndi;
+	@Autowired
 	private UserService userService;
 	private final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(this
 			.getClass());
@@ -27,6 +29,7 @@ public class UserController {
 	public ModelAndView user() {
 		int pageIndex = 1;
 		int pageSize = 1;
+		
 		ModelAndView mv = new ModelAndView("user");
 		User user = new User();
 		DataPage<User> dataPage = userService
