@@ -1,0 +1,30 @@
+#set($layout="user_layout.vm")
+#set($page_title="This is User")
+
+
+<form action="./user/add" method="post">
+姓名: <input type="text" name="userName" />
+年龄: <input type="text" name="age"/>
+<input type="submit"/>
+</form>
+<table border="1">
+<tr>
+    <td>姓名</td>
+    <td>年龄</td>
+    
+</tr>
+#foreach( $listUser in $dataPage.data)
+      
+	<tr>
+		<td>
+			$listUser.getUserName()
+		</td>
+		<td>
+			$listUser.getAge()
+		</td>
+	</tr>
+
+#end
+</table>
+<hr/>
+$!dataPage <br/>
