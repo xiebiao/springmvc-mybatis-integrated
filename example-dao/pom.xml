@@ -9,7 +9,19 @@
 	</parent>
 	<artifactId>example-dao</artifactId>
 	<packaging>jar</packaging>
+	<!-- http://www.easyjf.com/blog/html/20071119/360452.html -->
 	<dependencies>
+		<!-- jpa -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>toplink.essentials</groupId>
+			<artifactId>toplink-essentials</artifactId>
+			<version>2.1-60f</version>
+		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
@@ -57,6 +69,10 @@
 			<artifactId>spring-aop</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
 			<version>0.8.0-alpha1</version>
@@ -67,5 +83,4 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	<version>${full_version}</version>
 </project>
