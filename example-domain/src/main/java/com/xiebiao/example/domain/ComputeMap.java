@@ -1,5 +1,7 @@
 package com.xiebiao.example.domain;
 
+import com.xiebiao.mybatis.domain.BaseDomain;
+
 public class ComputeMap extends BaseDomain {
 
 	private static final long serialVersionUID = 1L;

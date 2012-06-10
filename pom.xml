@@ -9,7 +9,7 @@
 		<major_version>0</major_version>
 		<minor_version>1</minor_version>
 		<snapshot_version>-SNAPSHOT</snapshot_version>
-		<full_version>${major_version}.${minor_version}${snapshot_version}</full_version>
+		<full_version>0.1-SNAPSHOT</full_version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Log libs -->
 		<log4j_version>1.2.16</log4j_version>
@@ -124,11 +124,11 @@
 				<artifactId>junit</artifactId>
 				<version>${junit_version}</version>
 			</dependency>
-			<dependency>
+			<!-- dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-expression</artifactId>
 				<version>${spring_version}</version>
-			</dependency>
+			</dependency-->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
@@ -206,7 +206,7 @@
 			<id>dev</id>
 			<properties>
 				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-				<jdbc.url>jdbc:mysql://localhost:3306/jd</jdbc.url>
+				<jdbc.url>jdbc:mysql://localhost:3306/test</jdbc.url>
 				<jdbc.username>root</jdbc.username>
 				<jdbc.password>wangzhu</jdbc.password>
 			</properties>

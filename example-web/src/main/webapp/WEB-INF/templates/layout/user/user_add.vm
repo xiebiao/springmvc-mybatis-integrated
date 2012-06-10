@@ -2,7 +2,7 @@
 #set($page_title="This is User")
 
 
-<form action="./user/add" method="post">
+<form action="$application.getContextPath()/user/add/action" method="post">
 姓名: <input type="text" name="userName" />
 年龄: <input type="text" name="age"/>
 <input type="submit"/>

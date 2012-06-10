@@ -3,7 +3,6 @@
   <title>$!page_title</title>  
 </head>  
 <body>  
-<h3>ok</h3>
   $screen_content  
 </body>  
 </html>

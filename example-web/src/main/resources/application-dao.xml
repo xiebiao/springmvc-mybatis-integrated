@@ -27,17 +27,30 @@
 			value="3" /> -->
 	</bean>
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<property name="dataSource" ref="dbcpDataSource" /> <property name="configLocation" 
+		value="classpath:mybatis/sqlMapConfig.xml" /> </bean -->
+	<!-- bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<constructor-arg index="0" ref="sqlSessionFactory" /> </bean -->
+	<bean id="userDao" class="com.xiebiao.example.jpa.impl.UserDaoImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dbcpDataSource" />
-		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
+				<!-- property name="databasePlatform" value="org.apache.openjpa.jdbc.sql.MySQLDictionary" 
+					/ -->
+			</bean>
+		</property>
+		<!-- property name="loadTimeWeaver"> <bean class="org.springframework.instrument.classloading.SimpleLoadTimeWeaver" 
+			/> </property -->
 	</bean>
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean>
-	<bean id="userDao" class="com.xiebiao.example.dao.impl.UserDaoImpl">
-		<!--注入SqlSessionTemplate实例 -->
-		<property name="sqlSessionTemplate" ref="sqlSession" />
-		<!--也可直接注入SqlSessionFactory实例，二者都指定时，SqlSessionFactory失效 -->
-		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
-	</bean>
+	<!-- 事务管理 -->
+	<!-- bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" 
+		lazy-init="true"> <property name="entityManagerFactory" ref="entityManagerFactory" 
+		/> </bean -->
 </beans>

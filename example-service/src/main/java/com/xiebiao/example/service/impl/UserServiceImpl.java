@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 				+ pageSize);
 		DataPage<User> dp = new DataPage<User>(count, pageIndex, pageSize);
 		user.setStart(dp.getStartRecord());
-		user.setEnd(dp.getEndRecord());
+		user.setResult(10);
 
 		List<User> listUser = this.userDao.listAll(user);
 		dp.setData(listUser);

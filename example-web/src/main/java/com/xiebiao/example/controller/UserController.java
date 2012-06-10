@@ -23,7 +23,7 @@ public class UserController {
 	private final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(this
 			.getClass());
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public ModelAndView user() {
 		int pageIndex = 1;
 		int pageSize = 1;
@@ -36,29 +36,17 @@ public class UserController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/user/add", method = RequestMethod.POST)
-	public ModelAndView add(@RequestParam String userName, @RequestParam int age) {
-
-		ModelAndView mv = new ModelAndView("user2");
-
-		User user = new User();
-		user.setAge(age);
-		user.setUserName(userName);
-		this.userService.addUser(user);
-
-		DataPage<User> dataPage = userService.listAll(user, 1, 10);
-		mv.addObject("dataPage", dataPage);
+	@RequestMapping(value = "/user/add", method = RequestMethod.GET)
+	public ModelAndView add() {
+		ModelAndView mv = new ModelAndView("user_add");
 		return mv;
 	}
 
-	@RequestMapping(value = "/user2", method = RequestMethod.GET)
-	public ModelAndView user2(@RequestParam int pageIndex,
-			@RequestParam int pageSize) {
+	@RequestMapping(value = "/user/add/action", method = RequestMethod.POST)
+	public ModelAndView userAddAction() {
 		ModelAndView mv = new ModelAndView("user2");
 		User user = new User();
-		DataPage<User> dataPage = userService
-				.listAll(user, pageIndex, pageSize);
-		mv.addObject("dataPage", dataPage);
+		this.userService.addUser(user);
 		return mv;
 	}
 
