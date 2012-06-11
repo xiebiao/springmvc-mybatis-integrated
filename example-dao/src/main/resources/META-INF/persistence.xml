@@ -4,7 +4,9 @@
 	<persistence-unit name="SpringJpaGettingStarted"
 		transaction-type="RESOURCE_LOCAL" />
 	<properties>
-		<property name="openjpa.RuntimeUnenhancedClasses" value="RuntimeUnenhancedClassesModes.SUPPORTED" />
+		<!-- property name="openjpa.RuntimeUnenhancedClasses" value="RuntimeUnenhancedClassesModes.SUPPORTED" 
+			/ -->
+		<property name="openjpa.DynamicEnhancementAgent" value="false" />
 	</properties>
-	
+
 </persistence>

@@ -24,11 +24,6 @@ public class UserServiceImpl implements UserService {
 		LOG.error("................pageIndex" + pageIndex + " pageSize:"
 				+ pageSize);
 		DataPage<User> dp = new DataPage<User>(count, pageIndex, pageSize);
-		user.setStart(dp.getStartRecord());
-		user.setResult(10);
-
-		List<User> listUser = this.userDao.listAll(user);
-		dp.setData(listUser);
 		return dp;
 	}
 
