@@ -1,7 +1,5 @@
 package com.xiebiao.example.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +17,14 @@ public class UserServiceImpl implements UserService {
 
 	public DataPage<User> listAll(User user, int pageIndex, int pageSize) {
 
-		int count = this.userDao.countForObject(Integer.class);
+		int count = this.userDao.countForObject(user);
 
 		LOG.error("................pageIndex" + pageIndex + " pageSize:"
 				+ pageSize);
 		DataPage<User> dp = new DataPage<User>(count, pageIndex, pageSize);
+		user.setStart(dp.getStartRecord());
+		user.setRows(dp.getEndRecord());
+		dp.addAll(this.userDao.listForObject(user));
 		return dp;
 	}
 

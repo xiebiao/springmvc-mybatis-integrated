@@ -3,11 +3,12 @@ package com.xiebiao.example.dao;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.xiebiao.example.dao.impl.UserDaoImpl;
 import com.xiebiao.example.domain.User;
+import com.xiebiao.example.jpa.impl.UserDaoImpl;
 
 public class DaoTest extends TestCase {
 	private final int userId = 1;
@@ -16,12 +17,12 @@ public class DaoTest extends TestCase {
 	private final String beanName = "userDao";
 
 	public void setUp() {
-		ac = new ClassPathXmlApplicationContext("application-dao-test.xml",
-				"application-dao.xml");
-
+		ac = new ClassPathXmlApplicationContext("application-dao-test.xml");
+		ac.getBean("userDao");
 	}
 
-	public void test_UserDao_insert() {
+	@Test
+	public void test_insert() {
 		UserDaoImpl ud = (UserDaoImpl) ac.getBean(beanName);
 		Assert.assertNotNull(ud);
 		if (ud.getUser(userId) != null) {
@@ -35,17 +36,4 @@ public class DaoTest extends TestCase {
 		Assert.assertNotNull(key);
 	}
 
-	public void test_UserDao_getUser() {
-		UserDaoImpl ud = (UserDaoImpl) ac.getBean(beanName);
-		Assert.assertNotNull(ud);
-		User user = ud.getUser(userId);
-		Assert.assertNotNull(user);
-	}
-
-	public void test_UserDao_delete() {
-		UserDaoImpl ud = (UserDaoImpl) ac.getBean(beanName);
-		Assert.assertNotNull(ud);
-		int c = ud.delete(String.valueOf(userId));
-		Assert.assertEquals(1, c);
-	}
 }

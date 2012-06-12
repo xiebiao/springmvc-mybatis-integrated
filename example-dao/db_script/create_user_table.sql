@@ -5,3 +5,4 @@ CREATE TABLE `user` (
   PRIMARY KEY  (`userId`),
   UNIQUE KEY `userName` (`userName`)
 );
+INSERT INTO `user` (userName,age) VALUES ('ttt',1);

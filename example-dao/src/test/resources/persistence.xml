@@ -1,0 +1,17 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	version="1.0">
+
+	<persistence-unit name="SpringJpaGettingStarted"
+		transaction-type="RESOURCE_LOCAL" />
+	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl
+	</provider>
+	<class>com.xiebiao.example.domain.User</class>
+	<properties>
+		<!-- property name="openjpa.RuntimeUnenhancedClasses" value="RuntimeUnenhancedClassesModes.SUPPORTED" 
+			/ -->
+		<property name="openjpa.DynamicEnhancementAgent" value="false" />
+		<property name="user" value=" com.xiebiao.example.domain.User" />
+		<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+	</properties>
+
+</persistence>

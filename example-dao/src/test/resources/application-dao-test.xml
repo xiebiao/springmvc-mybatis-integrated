@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        				http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context/spring-context.xsd">
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:/config-test.properties" />
 	</bean>
+	<!-- BoneCP configuration -->
+	<bean id="boneCPDataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close" scope="singleton">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- <property name="idleConnectionTestPeriod" value="60" /> <property 
+			name="idleMaxAge" value="240" /> <property name="maxConnectionsPerPartition" 
+			value="30" /> <property name="minConnectionsPerPartition" value="10" /> <property 
+			name="partitionCount" value="3" /> <property name="acquireIncrement" value="5" 
+			/> <property name="statementsCacheSize" value="100" /> <property name="releaseHelperThreads" 
+			value="3" /> -->
+	</bean>
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="boneCPDataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
+				<!-- property name="databasePlatform" value="org.apache.openjpa.jdbc.sql.MySQLDictionary" 
+					/ -->
+			</bean>
+		</property>
+		<!-- property name="loadTimeWeaver"> <bean class="org.springframework.instrument.classloading.SimpleLoadTimeWeaver" 
+			/> </property -->
+	</bean>
+	<bean id="userDao" class="com.xiebiao.example.jpa.impl.UserDaoImpl" />
+	<!-- jpa注解扫描 -->
+	<bean id="persistenceAnnotation"
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 </beans>

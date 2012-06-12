@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        				http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context/spring-context.xsd">
 	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		scope="singleton">
 		<property name="driverClassName" value="${jdbc.driver}" />
@@ -27,17 +30,16 @@
 			value="3" /> -->
 	</bean>
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
-	<!-- bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
-		<property name="dataSource" ref="dbcpDataSource" /> <property name="configLocation" 
-		value="classpath:mybatis/sqlMapConfig.xml" /> </bean -->
-	<!-- bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> 
-		<constructor-arg index="0" ref="sqlSessionFactory" /> </bean -->
-	<bean id="userDao" class="com.xiebiao.example.jpa.impl.UserDaoImpl">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="boneCPDataSource" />
+		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="dbcpDataSource" />
+		<property name="dataSource" ref="boneCPDataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -53,4 +55,11 @@
 	<!-- bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" 
 		lazy-init="true"> <property name="entityManagerFactory" ref="entityManagerFactory" 
 		/> </bean -->
+	<!-- bean id="userDao" class="com.xiebiao.example.dao.impl.UserDaoImpl">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean-->
+	<bean id="userDao" class="com.xiebiao.example.jpa.impl.UserDaoImpl" />
+	<!-- jpa注解扫描 -->
+	<bean id="persistenceAnnotation"
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 </beans>

@@ -13,16 +13,21 @@
 	<!-- http://www.imlqw.com/139.html -->
 	<!-- http://blog.csdn.net/chenbaowen2002/article/details/6708891 -->
 	<dependencies>
-		<!-- jpa -->
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- jpa -->
 		<dependency>
 			<groupId>org.apache.openjpa</groupId>
 			<artifactId>openjpa</artifactId>
-			<version>2.2.0</version>
+			<version>${openjpa_version}</version>
 		</dependency>
 		<!-- dependency> <groupId>toplink.essentials</groupId> <artifactId>toplink-essentials</artifactId> 
 			<version>2.1-60f</version> </dependency -->
@@ -33,6 +38,11 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -85,4 +95,37 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.openjpa</groupId>
+				<artifactId>openjpa-maven-plugin</artifactId>
+				<version>2.2.0-SNAPSHOT</version>
+				<configuration>
+					<includes>**/entities/*.class</includes>
+					<excludes>**/entities/XML*.class</excludes>
+					<addDefaultConstructor>true</addDefaultConstructor>
+					<enforcePropertyRestrictions>true</enforcePropertyRestrictions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>enhancer</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.openjpa</groupId>
+						<artifactId>openjpa</artifactId>
+						<!-- set the version to be the same as the level in your runtime -->
+						<version>${openjpa_version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
 </project>

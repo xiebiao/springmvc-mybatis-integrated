@@ -2,5 +2,8 @@
 #set($page_title="This is User")
 
 $!dataPage <br/>
-$!dataPage.totalPage<br/>
-$user
+<hr/>
+
+#foreach($user in $!dataPage)
+	$user.userName<br/>
+#end

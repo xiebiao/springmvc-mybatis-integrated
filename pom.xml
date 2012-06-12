@@ -15,11 +15,14 @@
 		<log4j_version>1.2.16</log4j_version>
 		<slf4j_version>1.6.2</slf4j_version>
 		<slf4j_log4j12_version>1.6.4</slf4j_log4j12_version>
+		<!-- Log libs END -->
+		<openjpa_version>2.2.0</openjpa_version>
 		<spring_version>3.1.1.RELEASE</spring_version>
 		<velocity_version>1.7</velocity_version>
 		<mybatis_version>3.1.1</mybatis_version>
 		<velocity_tools>2.0</velocity_tools>
 		<mysql_driver_version>5.1.5</mysql_driver_version>
+		<bonecp_version>0.7.1.RELEASE</bonecp_version>
 		<!-- test -->
 		<junit_version>4.10</junit_version>
 		<findbugs_version>2.4.0</findbugs_version>
@@ -60,17 +63,28 @@
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j_log4j12_version}</version>
 			</dependency>
-			<!-- c3p0 -->
+			<!-- database pool -->
 			<dependency>
 				<groupId>c3p0</groupId>
 				<artifactId>c3p0</artifactId>
 				<version>0.9.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jolbox</groupId>
+				<artifactId>bonecp</artifactId>
+				<version>${bonecp_version}</version>
 			</dependency>
 			<!-- spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
 				<version>${spring_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring_version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -124,11 +138,8 @@
 				<artifactId>junit</artifactId>
 				<version>${junit_version}</version>
 			</dependency>
-			<!-- dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-expression</artifactId>
-				<version>${spring_version}</version>
-			</dependency-->
+			<!-- dependency> <groupId>org.springframework</groupId> <artifactId>spring-expression</artifactId> 
+				<version>${spring_version}</version> </dependency -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
