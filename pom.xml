@@ -44,6 +44,11 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+			</dependency>
 			<!-- Log libs -->
 			<dependency>
 				<groupId>log4j</groupId>
