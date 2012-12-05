@@ -31,8 +31,8 @@ public class DaoTest extends TestCase {
 		u.setUserName(userName);
 		u.setAge(10);
 		u.setUserId(userId);
-		String key = ud.insert(u);
-		Assert.assertNotNull(key);
+		int success = ud.insert(String.valueOf(u));
+		
 	}
 
 	public void test_UserDao_getUser() {

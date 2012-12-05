@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 		user.setEnd(dp.getEndRecord());
 
 		List<User> listUser = this.userDao.listAll(user);
-		dp.setData(listUser);
+		dp.addAll(listUser);
 		return dp;
 	}
 

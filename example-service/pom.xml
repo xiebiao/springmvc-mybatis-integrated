@@ -24,10 +24,5 @@
 			<artifactId>example-domain</artifactId>
 			<version>${full_version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.xiebiao</groupId>
-			<artifactId>xb-commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 </project>
