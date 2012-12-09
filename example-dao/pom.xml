@@ -4,8 +4,7 @@
 	<parent>
 		<artifactId>example</artifactId>
 		<groupId>com.xiebiao</groupId>
-		<version>${full_version}</version>
-		<relativePath>..</relativePath>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>example-dao</artifactId>
 	<packaging>jar</packaging>
@@ -25,12 +24,12 @@
 		<dependency>
 			<groupId>com.xiebiao</groupId>
 			<artifactId>example-domain</artifactId>
-			<version>${full_version}</version>
+			<version>0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.xiebiao</groupId>
 			<artifactId>common</artifactId>
-			<version>${full_version}</version>
+			<version>0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>

@@ -4,8 +4,7 @@
 	<parent>
 		<artifactId>example</artifactId>
 		<groupId>com.xiebiao</groupId>
-		<version>${full_version}</version>
-		<relativePath>..</relativePath>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>example-domain</artifactId>
 </project>

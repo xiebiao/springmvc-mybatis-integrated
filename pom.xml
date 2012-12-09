@@ -6,10 +6,6 @@
 		<project>
 			spring_mybatis_example
 		</project>
-		<major_version>0</major_version>
-		<minor_version>1</minor_version>
-		<snapshot_version>-SNAPSHOT</snapshot_version>
-		<full_version>${major_version}.${minor_version}${snapshot_version}</full_version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Log libs -->
 		<log4j_version>1.2.16</log4j_version>
@@ -27,12 +23,11 @@
 
 	<groupId>com.xiebiao</groupId>
 	<artifactId>example</artifactId>
-	<version>${full_version}</version>
+	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<scm>
-		<url>https://bitbucket.org/xiaog/springmvc_mybatis</url>
+		<url>https://github.com/xiebiao/springmvc_mybatis_integrated</url>
 	</scm>
-
 	<modules>
 		<module>example-web</module>
 		<module>example-dao</module>
@@ -41,7 +36,6 @@
 		<module>example-manager</module>
 		<module>common</module>
 	</modules>
-
 	<dependencyManagement>
 		<dependencies>
 			<!-- Log libs -->
@@ -70,11 +64,6 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
-				<version>${spring_version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.mysqk</groupId>
-				<artifactId>spring-webmvc</artifactId>
 				<version>${spring_version}</version>
 			</dependency>
 			<dependency>
@@ -197,6 +186,15 @@
 		</plugins>
 	</reporting>
 	<profiles>
+		<profile>
+			<id>product</id>
+			<properties>
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url>jdbc:mysql://localhost:3306/jd</jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>wangzhu</jdbc.password>
+			</properties>
+		</profile>
 		<profile>
 			<id>dev</id>
 			<properties>

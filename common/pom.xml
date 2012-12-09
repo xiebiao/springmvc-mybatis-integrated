@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>example</artifactId>
 		<groupId>com.xiebiao</groupId>
-		<version>${full_version}</version>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>common</artifactId>
 	<name>common</name>
