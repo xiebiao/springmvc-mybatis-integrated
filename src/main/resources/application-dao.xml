@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        				http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!--
+	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		scope="singleton">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	-->
+	<!-- BoneCP configuration -->
+	<bean id="boneCPDataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close" scope="singleton">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- <property name="idleConnectionTestPeriod" value="60" /> <property 
+			name="idleMaxAge" value="240" /> <property name="maxConnectionsPerPartition" 
+			value="30" /> <property name="minConnectionsPerPartition" value="10" /> <property 
+			name="partitionCount" value="3" /> <property name="acquireIncrement" value="5" 
+			/> <property name="statementsCacheSize" value="100" /> <property name="releaseHelperThreads" 
+			value="3" /> -->
+	</bean>
+	<!-- 创建SqlSessionFactory，同时指定数据源 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="boneCPDataSource" />
+		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="userDao" class="com.github.example.dao.impl.UserDaoImpl">
+		<!--注入SqlSessionTemplate实例 -->
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+		<!--也可直接注入SqlSessionFactory实例，二者都指定时，SqlSessionFactory失效 -->
+		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
+	</bean>
+</beans>
