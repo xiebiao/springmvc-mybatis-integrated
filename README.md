@@ -1,4 +1,4 @@
-SpringMVC与mybatis集成
+SpringMVC与Mybatis集成
 --------------------------------
 
 ## SpringFramework文档
