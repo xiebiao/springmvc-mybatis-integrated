@@ -1,5 +1,5 @@
-说明
---------------
+SpringMVC与mybatis集成
+--------------------------------
 
 ## SpringFramework文档
 
