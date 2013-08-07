@@ -1,0 +1,3 @@
+#set($layout="user_layout.vm")
+#set($page_title="This is User")
+home

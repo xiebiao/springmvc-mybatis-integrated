@@ -7,18 +7,37 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<context:annotation-config />
 	<context:component-scan base-package="com.github.example.web.controller" />
+	<!-- Velocity配置 -->
+	<!-- <bean id="velocityConfigurer" -->
+	<!-- class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"> -->
+	<!-- <property name="configLocation"> -->
+	<!-- <value>/WEB-INF/velocity.properties</value> -->
+	<!-- <value>classpath:velocity.properties</value> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 	<bean id="velocityConfigurer"
-		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">		
-		<property name="configLocation">
-			<value>/WEB-INF/velocity.properties</value>
-		</property>		
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/templates/layout/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="contentType">text/html;charset=UTF-8</prop>
+				<prop key="velocimacro.library">macro.vm</prop>
+				<prop key="tools.view.servlet.layout.directory">/WEB-INF/templates/layout/</prop>
+				<prop key="tools.view.servlet.error.template">/WEB-INF/templates/error/uncaught.vm</prop>
+				<prop key="tools.view.servlet.layout.default.template">default.vm</prop>
+			</props>
+		</property>
 	</bean>
-	<!-- bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
-		value=".jsp" /> </bean -->
+	<!-- <bean id="viewResolver" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+	<!-- <property name="prefix" value="/WEB-INF/jsp/" /> -->
+	<!-- <property name="suffix" value=".jsp" /> -->
+	<!-- </bean> -->
 	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
-		<property name="prefix" value="user/" />
+		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">	
+		<property name="cache" value="false" />
 		<property name="suffix" value=".vm" />
 		<property name="contentType">
 			<value>text/html;charset=UTF-8</value>
