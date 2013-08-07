@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.example.dao.impl.UserDaoImpl">
+<sql id="table_name">user_info</sql>
 	<sql id="condition">
 		<where>
 			<if test="userName != null">
@@ -13,47 +14,47 @@
 		</where>
 	</sql>
 	<select id="count" resultType="int">
-	<![CDATA[
-		select  count(*) as value  from user
-	 ]]>
+	
+		select  count(*) as value  from <include refid="table_name" />  
+
 	</select>
 	<select id="find" parameterType="string" resultType="User">
-	<![CDATA[
+
     SELECT
      	 user_id,
     	 user_name,
      	 age
-    FROM user
-    WHERE userId = #{userId} 
-    ]]>
+    FROM <include refid="table_name" />  
+    WHERE user_id = #{userId} 
+
 	</select>
 	<update id="update">
-	<![CDATA[
-		UPDATE user SET
+
+		UPDATE <include refid="table_name" />   SET
 		user_name = #{userName},
 		age = #{age}
 		WHERE userId = #{userId}
-		 ]]>
+		
 	</update>
 	<insert id="insert">
-		<![CDATA[
-			INSERT INTO user (user_name,age) 
+
+			INSERT INTO <include refid="table_name" />     (user_name,age) 
 			VALUES
 			(#{userName},#{age})
-		]]>
+
 	</insert>
 	<delete id="delete" parameterType="int">
-		<![CDATA[
-			DELETE FROM user
+
+			DELETE FROM <include refid="table_name" />    
 			WHERE
 			user_id=#{userId}	
-		]]>
+
 	</delete>
 	<select id="listAll" parameterType="User"
 		resultType="User">
-		<![CDATA[
-			SELECT * FROM user 
-			]]>
+	
+			SELECT * FROM <include refid="table_name" />     
+		
 		<include refid="condition" />	
 		<![CDATA[
 			 LIMIT #{start},#{end}
