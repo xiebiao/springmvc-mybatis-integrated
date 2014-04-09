@@ -12,7 +12,9 @@
 		<log4j_version>1.2.16</log4j_version>
 		<slf4j_version>1.6.2</slf4j_version>
 		<slf4j_log4j12_version>1.6.4</slf4j_log4j12_version>
-
+        <cxf.version>2.6.1</cxf.version>
+		<jedis_version>2.1.0</jedis_version>
+		<xmemcached_version>1.4.2</xmemcached_version>
 		<hsqldb_version>2.3.0</hsqldb_version>
 		<spring_version>3.2.2.RELEASE</spring_version>
 		<velocity_version>1.7</velocity_version>
@@ -63,7 +65,22 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j_log4j12_version}</version>
 		</dependency>
-		<!-- spring -->
+		<dependency>
+			<groupId>com.googlecode.xmemcached</groupId>
+			<artifactId>xmemcached</artifactId>
+			<version>${xmemcached_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github</groupId>
+			<artifactId>abator</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -99,7 +116,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql_driver_version}</version>
 		</dependency>
-		<!-- mybatis -->
+		<!-- Mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
@@ -120,12 +137,7 @@
 			<artifactId>velocity-tools</artifactId>
 			<version>${velocity_tools}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.github</groupId>
-			<artifactId>abator</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<!-- test -->
+		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -146,7 +158,7 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-		<plugins>
+		<plugins>			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
