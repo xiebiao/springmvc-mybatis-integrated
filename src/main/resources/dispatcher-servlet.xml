@@ -39,8 +39,6 @@
 		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">	
 		<property name="cache" value="false" />
 		<property name="suffix" value=".vm" />
-		<property name="contentType">
-			<value>text/html;charset=UTF-8</value>
-		</property>
+		<property name="contentType" value="text/html;charset=UTF-8"/>
 	</bean>
 </beans>
