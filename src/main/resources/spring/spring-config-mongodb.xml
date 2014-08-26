@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="mongoClient" class="com.mongodb.MongoClient">
+        <constructor-arg index="0">
+        <value>${mongodb.host}</value>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value>${mongodb.port}</value>
+        </constructor-arg>
+
+    </bean>
+
+</beans>

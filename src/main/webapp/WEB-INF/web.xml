@@ -9,7 +9,7 @@
 	<!-- Configures Spring XML configuration file locations -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:application*.xml</param-value>
+		<param-value>classpath*:spring/spring-config.xml</param-value>
 	</context-param>
 	<!-- web listener -->
 	<listener>

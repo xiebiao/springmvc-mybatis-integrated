@@ -8,20 +8,21 @@ import com.github.mybatis.dao.BaseDao;
 
 public class UserDaoImpl extends BaseDao implements UserDao {
 
-    public final String NAME_SPACE = this.getClass().getName();
 
-    public User getUser(int userId) {
-        return this.find(String.valueOf(userId));
-    }
+  public final String NAME_SPACE = this.getClass().getName();
 
-    @Override
-    public String getNameSpace() {
-        return NAME_SPACE;
-    }
+  public User getUser(int userId) {
+    return this.find(String.valueOf(userId));
+  }
 
-    public List<User> listAll(User user) {
+  @Override
+  public String getNameSpace() {
+    return NAME_SPACE;
+  }
 
-        return this.getSqlSession().selectList(this.getNameSpace() + ".listAll", user);
-    }
+  public List<User> listAll(User user) {
+
+    return this.getSqlSession().selectList(this.getNameSpace() + ".listAll", user);
+  }
 
 }
