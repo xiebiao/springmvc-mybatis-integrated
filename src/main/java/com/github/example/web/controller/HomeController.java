@@ -8,6 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public ModelAndView index() {
+    System.out.println(HomeController.class.getName());
+    ModelAndView mv = new ModelAndView("index");
+    return mv;
+  }
+
   @RequestMapping(value = "/home", method = RequestMethod.GET)
   public ModelAndView user() {
     System.out.println(HomeController.class.getName());

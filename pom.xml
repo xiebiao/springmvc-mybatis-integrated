@@ -131,30 +131,30 @@
 
         <!-- slf4j + log4j -->
         <!-- slf4j会在程序加载的时候在classpath查找log4j.properties/log4j.xml -->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-api</artifactId>-->
-        <!--<version>1.7.7</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-log4j12</artifactId>-->
-        <!--<version>1.7.7</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>log4j</groupId>-->
-        <!--<artifactId>log4j</artifactId>-->
-        <!--<version>1.2.17</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
         <!-- slf4j + log4j END-->
 
         <!-- logback -->
         <!-- logback独立使用的时候，内部依赖了slf4j-->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logbackVersion}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ch.qos.logback</groupId>-->
+            <!--<artifactId>logback-classic</artifactId>-->
+            <!--<version>${logbackVersion}</version>-->
+        <!--</dependency>-->
         <!-- logback END-->
 
         <!-- Mongodb -->
@@ -253,7 +253,7 @@
             <properties>
                 <environment>product</environment>
                 <logLevel>ERROR</logLevel>
-                <logTarget>ERROR</logTarget>
+                <logTarget>FILE_LOG</logTarget>
                 <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
                 <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
                 <jdbcUsername>root</jdbcUsername>
@@ -268,7 +268,7 @@
             <properties>
                 <environment>dev</environment>
                 <logLevel>DEBUG</logLevel>
-                <logTarget>LOG_FILE</logTarget>
+                <logTarget>CONSOLE</logTarget>
                 <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
                 <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
                 <jdbcUsername>root</jdbcUsername>
@@ -279,6 +279,8 @@
             <id>test</id>
             <properties>
                 <environment>test</environment>
+                <logLevel>DEBUG</logLevel>
+                <logTarget>CONSOLE</logTarget>
                 <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
                 <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
                 <jdbcUsername>root</jdbcUsername>
