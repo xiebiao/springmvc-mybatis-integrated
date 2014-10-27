@@ -1,4 +1,4 @@
-package com.github.common.crypto;
+package com.github.commons.crypto;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

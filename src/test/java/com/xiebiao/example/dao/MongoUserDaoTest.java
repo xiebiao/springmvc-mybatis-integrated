@@ -34,6 +34,6 @@ public class MongoUserDaoTest extends TestCase {
 
   @Test
   public void test_1() {
-      mongoClient.getDB("xx").getCollection("").f
+      mongoClient.getDB("xx").getCollection("");
   }
 }

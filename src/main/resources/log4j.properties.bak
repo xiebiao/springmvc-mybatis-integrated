@@ -1,5 +1,6 @@
 
 log4j.rootLogger=DEBUG,CONSOLE_LOG
+
 log4j.logger.org.springframework.beans.factory.support.DisposableBeanAdapter=ERROR,CONSOLE_LOG
 log4j.logger.org.springframework.web=ERROR,CONSOLE_LOG
 log4j.logger.org.springframework.beans=ERROR,CONSOLE_LOG
