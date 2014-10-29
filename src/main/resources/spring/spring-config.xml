@@ -13,8 +13,8 @@
     </bean>
 
     <!--通过 import 方式导入模块-->
-    <import resource="spring-config-dao.xml"/>
-    <import resource="spring-config-mongodb.xml"/>
-    <import resource="spring-config-service.xml"/>
+    <!--<import resource="spring-config-dao.xml"/>-->
+    <!--<import resource="spring-config-mongodb.xml"/>-->
+    <!--<import resource="spring-config-service.xml"/>-->
 
 </beans>

@@ -15,7 +15,7 @@ import com.github.example.service.UserService;
 /**
  * @author xiaog
  */
-@Controller
+//@Controller
 public class UserController {
 
   @Autowired
