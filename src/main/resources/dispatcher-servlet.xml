@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<context:annotation-config />
-    <!-- For validation -->
+    <!-- add  validation -->
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.github.example.web.controller" />
 

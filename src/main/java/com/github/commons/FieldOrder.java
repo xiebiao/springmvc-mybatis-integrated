@@ -9,6 +9,7 @@ public class FieldOrder {
         ASC, DESC
     }
 
+
     String fieldName;
     String order;
 

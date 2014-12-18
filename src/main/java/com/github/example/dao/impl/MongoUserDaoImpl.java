@@ -1,10 +1,10 @@
 package com.github.example.dao.impl;
 
-import java.util.List;
-
 import com.github.example.dao.UserDao;
 import com.github.example.domain.User;
 import com.github.mybatis.dao.BaseDao;
+
+import java.util.List;
 
 /**
  * @author xiebiao
@@ -12,13 +12,13 @@ import com.github.mybatis.dao.BaseDao;
  */
 public class MongoUserDaoImpl extends BaseDao implements UserDao {
 
-  @Override
-  public User getUser(int userId) {
-    return null;
-  }
+    @Override
+    public User getUser(int userId) {
+        return null;
+    }
 
-  @Override
-  public List<User> listAll(User user) {
-    return null;
-  }
+    @Override
+    public List<User> listAll(User user) {
+        return null;
+    }
 }

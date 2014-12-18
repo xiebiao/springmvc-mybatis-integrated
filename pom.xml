@@ -9,6 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project_name>jd</project_name>
         <servletApiVersion>3.1.0</servletApiVersion>
+        <jacksonVersion>1.9.13</jacksonVersion>
         <!-- Log libs -->
         <log4j_version>1.2.16</log4j_version>
         <slf4j_version>1.6.2</slf4j_version>
@@ -32,7 +33,9 @@
         <junit_version>4.10</junit_version>
         <findbugsVersion>2.4.0</findbugsVersion>
     </properties>
-
+<description>
+    code format: https://github.com/svn2github/google-styleguide.git
+</description>
     <groupId>com.github</groupId>
     <artifactId>example</artifactId>
     <version>0.1-SNAPSHOT</version>
@@ -57,6 +60,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.1.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.el</groupId>
+            <artifactId>jboss-el-api_3.0_spec</artifactId>
+            <version>1.0.4.Final</version>
         </dependency>
         <!-- DataSource Pool -->
         <dependency>
@@ -111,7 +119,25 @@
             <version>${spring_version}</version>
         </dependency>
         <!-- Spring END -->
+        <!-- Jackson json-->
+        <!-- json -->
         <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql_driver_version}</version>
@@ -191,6 +217,12 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
