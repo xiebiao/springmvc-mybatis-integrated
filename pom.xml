@@ -30,6 +30,7 @@
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
         <cobertura_maven_plugin_version>2.6</cobertura_maven_plugin_version>
         <!-- test -->
+        <htmlunitVersion>2.8</htmlunitVersion>
         <junit_version>4.10</junit_version>
         <findbugsVersion>2.4.0</findbugsVersion>
     </properties>
@@ -120,7 +121,6 @@
         </dependency>
         <!-- Spring END -->
         <!-- Jackson json-->
-        <!-- json -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
@@ -201,6 +201,12 @@
             <version>${mongo_java_driver}</version>
         </dependency>
         <!-- Test -->
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>${htmlunitVersion}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
