@@ -10,6 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project_name>jd</project_name>
         <servletApiVersion>3.1.0</servletApiVersion>
+        <jacksonVersion>1.9.13</jacksonVersion>
         <!-- Log libs -->
         <log4j_version>1.2.16</log4j_version>
         <slf4j_version>1.6.2</slf4j_version>
@@ -19,7 +20,7 @@
         <xmemcached_version>1.4.2</xmemcached_version>
         <hsqldb_version>2.3.0</hsqldb_version>
         <mongo_java_driver>2.12.3</mongo_java_driver>
-        <spring_version>3.2.2.RELEASE</spring_version>
+        <spring_version>3.2.9.RELEASE</spring_version>
         <velocity_version>1.7</velocity_version>
         <mybatis_version>3.2.3</mybatis_version>
         <mybatis_spring_version>1.2.0</mybatis_spring_version>
@@ -30,12 +31,15 @@
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
         <cobertura_maven_plugin_version>2.6</cobertura_maven_plugin_version>
         <!-- test -->
+        <htmlunitVersion>2.8</htmlunitVersion>
         <junit_version>4.10</junit_version>
         <hamcrestVersion>2.0.0.0</hamcrestVersion>
         <mockitoVersion>2.0.2-beta</mockitoVersion>
         <findbugsVersion>2.4.0</findbugsVersion>
     </properties>
-
+<description>
+    code format: https://github.com/svn2github/google-styleguide.git
+</description>
     <groupId>com.github</groupId>
     <artifactId>example</artifactId>
     <version>0.1-SNAPSHOT</version>
@@ -49,6 +53,22 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${servletApiVersion}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.el</groupId>
+            <artifactId>jboss-el-api_3.0_spec</artifactId>
+            <version>1.0.4.Final</version>
         </dependency>
         <!-- DataSource Pool -->
         <dependency>
@@ -103,7 +123,24 @@
             <version>${spring_version}</version>
         </dependency>
         <!-- Spring END -->
+        <!-- Jackson json-->
         <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>${jacksonVersion}</version>
+        </dependency>
+        <dependency>
+
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql_driver_version}</version>
@@ -168,6 +205,12 @@
         </dependency>
         <!-- Test -->
         <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>${htmlunitVersion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit_version}</version>
@@ -195,6 +238,12 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

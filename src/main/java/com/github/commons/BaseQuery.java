@@ -12,11 +12,11 @@ public class BaseQuery implements Query {
 
     private LinkedHashSet<FieldOrder> fieldOrders = new LinkedHashSet<FieldOrder>();
 
-    private Map<String, Object>       parameters;
-    private int                       pageSize;
-    private int                       offset;
-    private boolean                   isDistinct;
-    private boolean                   isPaging;
+    private Map<String, Object> parameters;
+    private int pageSize;
+    private int offset;
+    private boolean isDistinct;
+    private boolean isPaging;
 
     @Override
     public void setOffset(int offset) {

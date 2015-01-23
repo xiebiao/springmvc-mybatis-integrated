@@ -1,7 +1,4 @@
-SpringMVC与Mybatis集成
+SpringMVC,Mybatis
 ===============================
 
-## SpringFramework文档
-
-
-http://static.springsource.org/spring/docs/3.2.2.RELEASE/spring-framework-reference/html/
+http://docs.spring.io/spring/docs/3.2.9.RELEASE/spring-framework-reference/html/

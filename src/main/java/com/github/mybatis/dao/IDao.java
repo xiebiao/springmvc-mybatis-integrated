@@ -1,10 +1,9 @@
 package com.github.mybatis.dao;
 
-import java.util.List;
-
+import com.github.commons.Query;
 import org.springframework.dao.DataAccessException;
 
-import com.github.commons.Query;
+import java.util.List;
 
 /**
  * DAO

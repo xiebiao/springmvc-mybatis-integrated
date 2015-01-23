@@ -1,11 +1,10 @@
 package com.github.mybatis.dao;
 
-import java.util.List;
-
+import com.github.commons.Query;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.dao.DataAccessException;
 
-import com.github.commons.Query;
+import java.util.List;
 
 /**
  * @author xiebiao
