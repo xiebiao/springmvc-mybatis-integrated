@@ -27,6 +27,7 @@
         <velocity_tools>2.0</velocity_tools>
         <mysql_driver_version>5.1.5</mysql_driver_version>
         <druidVersion>1.0.12</druidVersion>
+        <jacksonVersion>2.4.2</jacksonVersion>
         <!-- maven plugin -->
         <mavenCompilerPluginVersion>3.1</mavenCompilerPluginVersion>
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
@@ -121,22 +122,22 @@
         <!-- Spring END -->
         <!-- Jackson json-->
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
             <version>${jacksonVersion}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
             <version>${jacksonVersion}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
             <version>${jacksonVersion}</version>
         </dependency>
-        <dependency>
 
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql_driver_version}</version>
