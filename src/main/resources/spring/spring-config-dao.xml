@@ -5,32 +5,33 @@
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         				http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    <!--
-	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		scope="singleton">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-	</bean>
-	-->
-	<!-- BoneCP configuration -->
-	<bean id="boneCPDataSource" class="com.jolbox.bonecp.BoneCPDataSource"
-		destroy-method="close" scope="singleton">
-		<property name="driverClass" value="${jdbc.driver}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-		<!-- <property name="idleConnectionTestPeriod" value="60" /> <property 
-			name="idleMaxAge" value="240" /> <property name="maxConnectionsPerPartition" 
-			value="30" /> <property name="minConnectionsPerPartition" value="10" /> <property 
-			name="partitionCount" value="3" /> <property name="acquireIncrement" value="5" 
-			/> <property name="statementsCacheSize" value="100" /> <property name="releaseHelperThreads" 
-			value="3" /> -->
-	</bean>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="maxActive" value="20"/>
+        <property name="initialSize" value="10"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="5"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="3000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+
+        <property name="validationQuery" value="SELECT 'x' FROM DUAL"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <!-- 开启Druid的监控统计功能 -->
+        <!--<property name="filters" value="stat" />-->
+    </bean>
+
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="boneCPDataSource" />
+		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

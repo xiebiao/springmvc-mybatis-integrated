@@ -26,6 +26,7 @@
         <mybatis_spring_version>1.2.0</mybatis_spring_version>
         <velocity_tools>2.0</velocity_tools>
         <mysql_driver_version>5.1.5</mysql_driver_version>
+        <druidVersion>1.0.12</druidVersion>
         <!-- maven plugin -->
         <mavenCompilerPluginVersion>3.1</mavenCompilerPluginVersion>
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
@@ -72,14 +73,9 @@
         </dependency>
         <!-- DataSource Pool -->
         <dependency>
-            <groupId>com.jolbox</groupId>
-            <artifactId>bonecp</artifactId>
-            <version>0.8.0-alpha1</version>
-        </dependency>
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.1.2</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druidVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.xmemcached</groupId>
