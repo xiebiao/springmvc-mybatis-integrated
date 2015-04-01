@@ -25,7 +25,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @ContextConfiguration(locations =
     {
-        "classpath:dispatcher-servlet.xml",
         "classpath:spring/spring-config.xml"
     })
 public class HomeControllerTest {
