@@ -29,6 +29,7 @@
         <druidVersion>1.0.12</druidVersion>
         <jacksonVersion>2.4.2</jacksonVersion>
         <guavaVersion>18.0</guavaVersion>
+        <jodatimeVersion>2.2</jodatimeVersion>
         <!-- maven plugin -->
         <mavenCompilerPluginVersion>3.1</mavenCompilerPluginVersion>
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
@@ -61,6 +62,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guavaVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${jodatimeVersion}</version>
         </dependency>
         <!-- validation -->
         <dependency>

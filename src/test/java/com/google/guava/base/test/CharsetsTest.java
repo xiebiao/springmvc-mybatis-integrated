@@ -10,5 +10,7 @@ import org.junit.Test;
 public class CharsetsTest {
     @Test
     public void test_c(){
+        System.out.println(Charsets.ISO_8859_1.canEncode());
+
     }
 }

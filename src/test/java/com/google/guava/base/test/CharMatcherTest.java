@@ -1,5 +1,6 @@
 package com.google.guava.base.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.google.common.base.CharMatcher;
@@ -10,15 +11,30 @@ import com.google.common.base.CharMatcher;
  */
 public class CharMatcherTest {
   @Test
-  public void test_() {
-    String text = "aaa111DDD123DDDDee1!";
-    String text2 = "ABCDED";
-   // System.out.println(CharMatcher.inRange('A', 'Z').matchesAllOf(text2));
-   // System.out.println(CharMatcher.is('a').matchesAllOf("a"));
-    System.out.println(CharMatcher.anyOf("aaab").matches('a'));
-    System.out.println(CharMatcher.JAVA_LETTER);
+  public void test_inRange() {
 
-    // System.out.println(CharMatcher.anyOf("test").and(CharMatcher.ANY).toString());
-    System.out.println(CharMatcher.JAVA_DIGIT.retainFrom(text));
+    CharMatcher str = CharMatcher.inRange('A', 'D');
+    Assert.assertEquals(true, str.matchesAllOf("ABCD"));
+
+  }
+
+  @Test
+  public void test_retainFrom() {
+    String text = "aaa111DDD123DDDDee1!";
+    Assert.assertEquals("1111231", CharMatcher.JAVA_DIGIT.retainFrom(text));
+  }
+
+  @Test
+  public void test_removeFrom() {
+    String text = "aaa111DDD123DDDDee1!";
+    Assert.assertEquals("aaa111123ee1!", CharMatcher.JAVA_UPPER_CASE.removeFrom(text));
+  }
+
+  @Test
+  public void test_anyOf() {
+    CharMatcher charMatcher = CharMatcher.anyOf("abasdfasf|w");
+
+    System.out.println(charMatcher.countIn("a"));
+
   }
 }
