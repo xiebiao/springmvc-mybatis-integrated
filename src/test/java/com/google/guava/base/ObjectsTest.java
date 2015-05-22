@@ -28,4 +28,8 @@ public class ObjectsTest {
   public void test_equal_return_true() {
     Assert.assertEquals(true, Objects.equal("a", "a"));
   }
+  @Test
+  public void test_toString(){
+    System.out.println(MoreObjects.toStringHelper(this).add("a","value"));
+  }
 }
