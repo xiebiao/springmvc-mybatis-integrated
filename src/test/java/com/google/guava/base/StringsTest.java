@@ -1,4 +1,4 @@
-package com.google.guava.base.test;
+package com.google.guava.base;
 
 import junit.framework.Assert;
 

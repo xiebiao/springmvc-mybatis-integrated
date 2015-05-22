@@ -1,4 +1,4 @@
-package com.google.guava.base.test;
+package com.google.guava.base;
 
 import com.google.common.base.Charsets;
 import org.junit.Test;
