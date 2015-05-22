@@ -1,21 +1,39 @@
 package com.google.guava.base.test;
 
-import com.google.common.base.Strings;
+import junit.framework.Assert;
+
 import org.junit.Test;
+
+import com.google.common.base.Strings;
 
 /**
  * @author xiebiao
  * @date 4/6/15
  */
 public class StringsTest {
-    @Test
-    public void test_padEnd(){
-        String text= "Name is Xiaog";
-        System.out.println(Strings.repeat("**",10));
+  @Test
+  public void test_padEnd() {
+    String text = "1";
+    String expect = "1ss";
+    Assert.assertEquals(expect, Strings.padEnd(text, 3, 's'));
+  }
 
-        System.out.println(Strings.commonSuffix("a1.xxx.jpg", "a2.TTT.jpg"));
-        System.out.println(Strings.commonPrefix("a1.xxx","a2.TTT"));
-        System.out.println(Strings.padEnd(text, 40, 's'));
-        System.out.println(Strings.padStart(text, 16, '!'));
-    }
+  @Test
+  public void test_commonSuffix() {
+    String suffix = ".jpg";
+    Assert.assertEquals(suffix, Strings.commonSuffix("a1.xxx.jpg", "a2.TTT.jpg"));
+  }
+
+  @Test
+  public void test_repeat() {
+    String expect = "****";
+    Assert.assertEquals(expect, Strings.repeat("*", 4));
+  }
+
+  @Test
+  public void test_padStart() {
+    String expect = "ssa";
+    String text = "a";
+    Assert.assertEquals(expect, Strings.padStart(text, 3, 's'));
+  }
 }

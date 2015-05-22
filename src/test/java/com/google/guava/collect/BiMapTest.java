@@ -1,4 +1,4 @@
-package com.google.guava.base.test;
+package com.google.guava.collect;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
