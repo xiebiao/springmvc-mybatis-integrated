@@ -5,42 +5,42 @@ package com.github.commons;
  */
 public class FieldOrder {
 
-    public enum ORDER {
-        ASC, DESC
-    }
+  public enum ORDER {
+    ASC, DESC
+  }
 
 
-    String fieldName;
-    String order;
+  String fieldName;
+  String order;
 
-    /**
-     * 默认为升序
-     *
-     * @param fieldName
-     */
-    public FieldOrder(String fieldName) {
-        this.fieldName = fieldName;
-        this.order = ORDER.ASC.name();
-    }
+  /**
+   * 默认为升序
+   *
+   * @param fieldName
+   */
+  public FieldOrder(String fieldName) {
+    this.fieldName = fieldName;
+    this.order = ORDER.ASC.name();
+  }
 
-    public FieldOrder(String fieldName, ORDER order1) {
-        this.fieldName = fieldName;
-        this.order = order1.name();
-    }
+  public FieldOrder(String fieldName, ORDER order1) {
+    this.fieldName = fieldName;
+    this.order = order1.name();
+  }
 
-    public String getFieldName() {
-        return fieldName;
-    }
+  public String getFieldName() {
+    return fieldName;
+  }
 
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
 
-    public String getOrder() {
-        return order;
-    }
+  public String getOrder() {
+    return order;
+  }
 
-    public void setOrder(ORDER order) {
-        this.order = order.name();
-    }
+  public void setOrder(ORDER order) {
+    this.order = order.name();
+  }
 }

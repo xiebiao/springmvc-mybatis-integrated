@@ -1,9 +1,10 @@
 package com.github.mybatis.dao;
 
-import com.github.commons.Query;
+import java.util.List;
+
 import org.springframework.dao.DataAccessException;
 
-import java.util.List;
+import com.github.commons.Query;
 
 /**
  * DAO
@@ -12,22 +13,22 @@ import java.util.List;
  */
 public interface IDao {
 
-    <T> Integer insert(T domain) throws DataAccessException;
+  <T> Integer insert(T domain) throws DataAccessException;
 
-    Integer delete(String keyId) throws DataAccessException;
+  Integer delete(String keyId) throws DataAccessException;
 
-    <T> Integer update(T domain) throws DataAccessException;
+  <T> Integer update(T domain) throws DataAccessException;
 
-    <T> T find(Object keyId) throws DataAccessException;
+  <T> T find(Object keyId) throws DataAccessException;
 
-    <E extends Query> List<E> listForObject(E domain) throws DataAccessException;
+  <E extends Query> List<E> listForObject(E domain) throws DataAccessException;
 
-    <E extends Query> Integer countForObject(E domain) throws DataAccessException;
+  <E extends Query> Integer countForObject(E domain) throws DataAccessException;
 
-    <E> List<E> batchInsert(final List<E> list);
+  <E> List<E> batchInsert(final List<E> list);
 
-    <E> List<E> batchUpdate(final List<E> list);
+  <E> List<E> batchUpdate(final List<E> list);
 
-    <E> List<E> batch(final List<E> list, final String sqlId);
+  <E> List<E> batch(final List<E> list, final String sqlId);
 
 }

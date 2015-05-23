@@ -8,64 +8,66 @@ import java.util.Map;
  */
 public interface Query {
 
-    void setOffset(int offset);
+  void setOffset(int offset);
 
-    int getOffset();
+  int getOffset();
 
-    /**
-     * 设置是否排重
-     *
-     * @param distinct
-     */
-    void setDistinct(boolean distinct);
+  /**
+   * 设置是否排重
+   *
+   * @param distinct
+   */
+  void setDistinct(boolean distinct);
 
-    /**
-     * 是否排重
-     *
-     * @return
-     */
-    boolean isDistinct();
+  /**
+   * 是否排重
+   *
+   * @return
+   */
+  boolean isDistinct();
 
-    /**
-     * 是否分页
-     *
-     * @return
-     */
-    boolean isPaging();
+  /**
+   * 是否分页
+   *
+   * @return
+   */
+  boolean isPaging();
 
-    /**
-     * 设置是否分页
-     *
-     * @param paging
-     */
-    void setPaging(boolean paging);
+  /**
+   * 设置是否分页
+   *
+   * @param paging
+   */
+  void setPaging(boolean paging);
 
-    void setPageSize(int pageSize);
+  void setPageSize(int pageSize);
 
-    int getPageSize();
+  int getPageSize();
 
-    /**
-     * 排序字段内部实现使用<code>LinkedHashSet</code>，So,排序字段有先后顺序，例如：
-     * <p/>
-     * <pre>
-     * Query query = new Query();
-     * query.setOrder(new FieldOrder(&quot;updateTime&quot;, FieldOrder.ORDER.ASC));
-     * query.setOrder(new FieldOrder(&quot;addTime&quot;, FieldOrder.ORDER.DESC));
-     * </pre>
-     * <p/>
-     * 则会生成SQL:
-     * <p/>
-     * <pre>
-     *     ... ORDER BY updateTime ASC , addTime DESC ...
-     * </pre>
-     *
-     * @param fieldOrder
-     */
-    void setOrder(FieldOrder fieldOrder);
+  /**
+   * 排序字段内部实现使用<code>LinkedHashSet</code>，So,排序字段有先后顺序，例如：
+   * <p/>
+   * 
+   * <pre>
+   * Query query = new Query();
+   * query.setOrder(new FieldOrder(&quot;updateTime&quot;, FieldOrder.ORDER.ASC));
+   * query.setOrder(new FieldOrder(&quot;addTime&quot;, FieldOrder.ORDER.DESC));
+   * </pre>
+   * <p/>
+   * 则会生成SQL:
+   * <p/>
+   * 
+   * <pre>
+   *     ... ORDER BY updateTime ASC , addTime DESC ...
+   * </pre>
+   *
+   * @param fieldOrder
+   */
+  void setOrder(FieldOrder fieldOrder);
 
-    List<FieldOrder> getOrders();
+  List<FieldOrder> getOrders();
 
-    void setQueryParameters(Map<String, Object> parameters);
+  void setQueryParameters(Map<String, Object> parameters);
 
-    Map<String, Object> getQueryParameters();
+  Map<String, Object> getQueryParameters();
 }

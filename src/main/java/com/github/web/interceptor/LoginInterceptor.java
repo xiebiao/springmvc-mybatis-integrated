@@ -10,25 +10,25 @@ import org.springframework.web.servlet.ModelAndView;
  * @date 10/27/14
  */
 public class LoginInterceptor implements HandlerInterceptor {
-    private Logger LOG = LoggerFactory.getLogger(LoginInterceptor.class);
+  private Logger LOG = LoggerFactory.getLogger(LoginInterceptor.class);
 
-    @Override
-    public boolean preHandle(javax.servlet.http.HttpServletRequest request,
-        javax.servlet.http.HttpServletResponse response, Object handler) throws Exception {
-        return false;
-    }
+  @Override
+  public boolean preHandle(javax.servlet.http.HttpServletRequest request,
+      javax.servlet.http.HttpServletResponse response, Object handler) throws Exception {
+    return false;
+  }
 
-    @Override
-    public void postHandle(javax.servlet.http.HttpServletRequest request,
-        javax.servlet.http.HttpServletResponse response, Object handler, ModelAndView modelAndView)
-        throws Exception {
-        LOG.debug("postHandle");
-    }
+  @Override
+  public void postHandle(javax.servlet.http.HttpServletRequest request,
+      javax.servlet.http.HttpServletResponse response, Object handler, ModelAndView modelAndView)
+      throws Exception {
+    LOG.debug("postHandle");
+  }
 
-    @Override
-    public void afterCompletion(javax.servlet.http.HttpServletRequest request,
-        javax.servlet.http.HttpServletResponse response, Object handler, Exception ex)
-        throws Exception {
-        LOG.debug("afterCompletion");
-    }
+  @Override
+  public void afterCompletion(javax.servlet.http.HttpServletRequest request,
+      javax.servlet.http.HttpServletResponse response, Object handler, Exception ex)
+      throws Exception {
+    LOG.debug("afterCompletion");
+  }
 }
