@@ -11,12 +11,14 @@ import org.junit.Test;
  * @date 1/23/15
  */
 public class HamcrestTest {
-    @Test public void test1() {
-        Assert.assertThat(9, Matchers.is(9));
-    }
+  @Test
+  public void test1() {
+    Assert.assertThat(9, Matchers.is(9));
+  }
 
-    @Test public void test2() {
-        Assert.assertThat(6, Matchers.greaterThan(7));
-    }
+  @Test
+  public void test2() {
+    Assert.assertThat(6, Matchers.greaterThan(7));
+  }
 
 }

@@ -36,7 +36,8 @@
         <cobertura_maven_plugin_version>2.6</cobertura_maven_plugin_version>
         <!-- test -->
         <htmlunitVersion>2.8</htmlunitVersion>
-        <junit_version>4.10</junit_version>
+        <junit_version>4.12</junit_version>
+        <testng_version>6.9.4</testng_version>
         <hamcrestVersion>2.0.0.0</hamcrestVersion>
         <mockitoVersion>2.0.2-beta</mockitoVersion>
         <findbugsVersion>2.4.0</findbugsVersion>
@@ -226,6 +227,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>java-hamcrest</artifactId>
             <version>${hamcrestVersion}</version>
@@ -297,8 +304,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${mavenCompilerPluginVersion}</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
