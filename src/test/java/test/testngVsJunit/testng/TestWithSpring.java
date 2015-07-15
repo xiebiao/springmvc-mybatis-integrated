@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
  * @date 7/14/15
  */
 @Test
-@ContextConfiguration(locations = { "classpath:spring-config.xml" })
+@ContextConfiguration(locations = {"classpath:spring/spring-config.xml"})
 public class TestWithSpring extends AbstractTestNGSpringContextTests {
+
 }

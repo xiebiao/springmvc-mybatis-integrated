@@ -37,10 +37,10 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="userDao" class="com.github.example.dao.impl.UserDaoImpl">
-		<!--注入SqlSessionTemplate实例 -->
-		<property name="sqlSessionTemplate" ref="sqlSession" />
-		<!--也可直接注入SqlSessionFactory实例，二者都指定时，SqlSessionFactory失效 -->
-		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
-	</bean>
+	<!--<bean id="userDao" class="com.github.example.dao.impl.UserDaoImpl">-->
+		<!--&lt;!&ndash;注入SqlSessionTemplate实例 &ndash;&gt;-->
+		<!--<property name="sqlSessionTemplate" ref="sqlSession" />-->
+		<!--&lt;!&ndash;也可直接注入SqlSessionFactory实例，二者都指定时，SqlSessionFactory失效 &ndash;&gt;-->
+		<!--&lt;!&ndash; <property name="sqlSessionFactory" ref="sqlSessionFactory" /> &ndash;&gt;-->
+	<!--</bean>-->
 </beans>
