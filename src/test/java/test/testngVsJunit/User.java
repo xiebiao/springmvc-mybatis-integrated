@@ -8,6 +8,10 @@ public class User {
   private String name;
   private int age;
 
+  public User() {
+    System.out.println("user init");
+  }
+
   public String getName() {
     return name;
   }
