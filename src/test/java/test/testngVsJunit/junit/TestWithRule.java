@@ -14,5 +14,6 @@ public class TestWithRule {
   @Test
   public void test() {
     System.out.println("test method");
+
   }
 }
