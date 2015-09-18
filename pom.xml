@@ -42,143 +42,30 @@
         <mockitoVersion>2.0.2-beta</mockitoVersion>
         <findbugsVersion>2.4.0</findbugsVersion>
     </properties>
-<description>
-    code format: https://github.com/svn2github/google-styleguide.git
-</description>
+    <description>
+        code format: https://github.com/google/styleguide.git
+    </description>
     <groupId>com.github</groupId>
-    <artifactId>example</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <artifactId>app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>app-commons</module>
+        <module>app-dao</module>
+        <module>app-web</module>
+    </modules>
     <scm>
         <url>https://github.com/xiebiao/springmvc_mybatis_integrated</url>
     </scm>
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servletApiVersion}</version>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guavaVersion}</version>
         </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${jodatimeVersion}</version>
-        </dependency>
-        <!-- validation -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.1.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.spec.javax.el</groupId>
-            <artifactId>jboss-el-api_3.0_spec</artifactId>
-            <version>1.0.4.Final</version>
-        </dependency>
-        <!-- DataSource Pool -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druidVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.xmemcached</groupId>
-            <artifactId>xmemcached</artifactId>
-            <version>${xmemcached_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>${jedis_version}</version>
-        </dependency>
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <!-- Spring END -->
-        <!-- Jackson json-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql_driver_version}</version>
-        </dependency>
-        <!-- Mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>${mybatis_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>${mybatis_spring_version}</version>
-        </dependency>
-        <!-- Velocity -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>${velocity_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-tools</artifactId>
-            <version>${velocity_tools}</version>
-        </dependency>
         <!-- Logging -->
-
         <!-- slf4j + log4j -->
         <!-- slf4j会在程序加载的时候在classpath查找log4j.properties/log4j.xml -->
         <dependency>
@@ -207,12 +94,6 @@
         <!--</dependency>-->
         <!-- logback END-->
 
-        <!-- Mongodb -->
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>${mongo_java_driver}</version>
-        </dependency>
         <!-- Test -->
         <dependency>
             <groupId>net.sourceforge.htmlunit</groupId>
@@ -245,12 +126,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring_version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb_version}</version>
@@ -262,6 +137,7 @@
             <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- Test END-->
     </dependencies>
     <build>
         <resources>
@@ -304,19 +180,12 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${mavenCompilerPluginVersion}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <path>/</path>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -327,46 +196,5 @@
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>product</id>
-            <properties>
-                <environment>product</environment>
-                <logLevel>ERROR</logLevel>
-                <logTarget>FILE_LOG</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <environment>dev</environment>
-                <logLevel>DEBUG</logLevel>
-                <logTarget>CONSOLE</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <environment>test</environment>
-                <logLevel>DEBUG</logLevel>
-                <logTarget>CONSOLE</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-    </profiles>
 
 </project>
