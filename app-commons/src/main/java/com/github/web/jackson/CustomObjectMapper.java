@@ -1,4 +1,4 @@
-package com.github.web.json.jackson;
+package com.github.web.jackson;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;

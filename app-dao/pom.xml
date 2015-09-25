@@ -10,7 +10,11 @@
     <artifactId>app-dao</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <dependencies>
-
+        <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>app-commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

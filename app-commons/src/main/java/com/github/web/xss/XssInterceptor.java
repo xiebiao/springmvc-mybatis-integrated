@@ -1,4 +1,4 @@
-package com.github.web.spring.interceptors;
+package com.github.web.xss;
 
 import java.io.IOException;
 import java.lang.reflect.Method;

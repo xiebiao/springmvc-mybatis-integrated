@@ -1,4 +1,4 @@
-package com.github.web.json.jackson;
+package com.github.web.jackson;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

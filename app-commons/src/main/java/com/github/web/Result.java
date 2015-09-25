@@ -1,4 +1,4 @@
-package com.github.web.json;
+package com.github.web;
 
 /**
  * @author xiebiao
