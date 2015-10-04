@@ -3,6 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github</groupId>
+    <artifactId>app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>
+        code format: https://github.com/google/styleguide.git
+    </description>
     <properties>
         <project>
             spring_mybatis_example
@@ -42,13 +50,6 @@
         <mockitoVersion>2.0.2-beta</mockitoVersion>
         <findbugsVersion>2.4.0</findbugsVersion>
     </properties>
-    <description>
-        code format: https://github.com/google/styleguide.git
-    </description>
-    <groupId>com.github</groupId>
-    <artifactId>app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <modules>
         <module>app-commons</module>
         <module>app-dao</module>
