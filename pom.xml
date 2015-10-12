@@ -19,11 +19,11 @@
         <project_name>jd</project_name>
         <servletApiVersion>3.1.0</servletApiVersion>
         <jacksonVersion>1.9.13</jacksonVersion>
-        <!-- Log libs -->
+        <!-- logging  -->
         <log4j_version>1.2.16</log4j_version>
-        <slf4j_version>1.6.2</slf4j_version>
+        <slf4jVersion>1.7.7</slf4jVersion>
         <logbackVersion>1.1.2</logbackVersion>
-        <slf4j_log4j12_version>1.6.4</slf4j_log4j12_version>
+        <log4jVersion>1.2.17</log4jVersion>
         <jedis_version>2.1.0</jedis_version>
         <xmemcached_version>1.4.2</xmemcached_version>
         <hsqldb_version>2.3.0</hsqldb_version>
@@ -49,6 +49,7 @@
         <hamcrestVersion>2.0.0.0</hamcrestVersion>
         <mockitoVersion>2.0.2-beta</mockitoVersion>
         <findbugsVersion>2.4.0</findbugsVersion>
+        <antisamyVersion>1.5.3</antisamyVersion>
     </properties>
     <modules>
         <module>app-commons</module>
@@ -102,24 +103,28 @@
                 <version>${spring_version}</version>
                 <scope>test</scope>
             </dependency>
-
-            <!-- Logging -->
+            <dependency>
+                <groupId>org.owasp.antisamy</groupId>
+                <artifactId>antisamy</artifactId>
+                <version>${antisamyVersion}</version>
+            </dependency>
+            <!-- logging -->
             <!-- slf4j + log4j -->
             <!-- slf4j会在程序加载的时候在classpath查找log4j.properties/log4j.xml -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.7</version>
+                <version>${slf4jVersion}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.7</version>
+                <version>${slf4jVersion}</version>
             </dependency>
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
-                <version>1.2.17</version>
+                <version>${log4jVersion}</version>
             </dependency>
             <!-- Test -->
             <dependency>

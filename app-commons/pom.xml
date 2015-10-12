@@ -16,5 +16,9 @@
             <version>${servletApiVersion}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.owasp.antisamy</groupId>
+            <artifactId>antisamy</artifactId>
+        </dependency>
     </dependencies>
 </project>

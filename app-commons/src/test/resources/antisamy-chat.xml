@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<anti-samy-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="antisamy.xsd">
+
+	<directives>
+		<directive name="maxInputSize" value="100000" />
+	</directives>
+
+	<common-regexps>
+		<!-- 表情图片URL正则表达式 -->
+		<!-- <regexp name="imgSRC" value="(http://)?misc.360buyimg.com/chat/im/pic/[a-zA-Z0-9/-/_]+.gif"/> -->
+		<!-- 所有src正则表达式 -->
+		<regexp name="imgSRC" value="^(.)+$"/>
+	</common-regexps>
+
+	<tag-rules>
+		<tag name="img" action="validate">
+			<attribute name="src" onInvalid="filterTag">
+				<regexp-list>
+					<regexp name="imgSRC" />
+				</regexp-list>
+			</attribute>
+			<attribute name="rel">
+				<literal-list>
+					<literal value="nofollow" />
+				</literal-list>
+			</attribute>
+		</tag>
+	</tag-rules>
+</anti-samy-rules>
