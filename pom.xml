@@ -16,6 +16,7 @@
             spring_mybatis_example
         </project>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdkVersion>1.7</jdkVersion>
         <project_name>jd</project_name>
         <servletApiVersion>3.1.0</servletApiVersion>
         <jacksonVersion>1.9.13</jacksonVersion>
@@ -341,8 +342,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${mavenCompilerPluginVersion}</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${jdkVersion}</source>
+                    <target>${jdkVersion}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
@@ -357,5 +358,29 @@
             </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <linkXRef>false</linkXRef>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>${jdkVersion}</targetJdk>
+                    <format>txt</format>
+                    <outputDirectory>target/pmd</outputDirectory>
+                    <targetDirectory>target/pmd</targetDirectory>
+                    <!--<excludes>-->
+                    <!--<exclude>**/*Bean.java</exclude>-->
+                    <!--<exclude>**/generated/*.java</exclude>-->
+                    <!--</excludes>-->
+                    <!--<excludeRoots>-->
+                    <!--<excludeRoot>target/generated-sources/stubs</excludeRoot>-->
+                    <!--</excludeRoots>-->
+                </configuration>
+            </plugin>
 
+        </plugins>
+    </reporting>
 </project>
