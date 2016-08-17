@@ -10,16 +10,18 @@
     <artifactId>app-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <dependencies>
-
+        <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>app-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- Joda-time-->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${jodatimeVersion}</version>
         </dependency>
-
 
         <!-- Validation -->
         <dependency>
