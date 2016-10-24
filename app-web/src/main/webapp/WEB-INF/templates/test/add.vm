@@ -1,0 +1,30 @@
+<script src="/js/jquery-3.1.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sumbitBtn").on('click',
+                function () {
+                    var array = [1, 2];
+                    var params = {
+                        array: array
+                    };
+                    $.ajax({
+                        url: '/save.json',
+                        data: params,
+                        //jquery 默认的contentType:application/x-www-form-urlencoded 不能传递数组
+                        //这里能使用contentType:'application/json',才能传传递数组
+                        //      contentType:'application/json',
+                        dataType: 'json',
+                        type: 'post',
+                        success: function (data) { //请求成功后处理函数。
+                            alert(data)
+                        }
+                    });
+                }
+        );
+    });
+</script>
+<form>
+    <input type="text" value="xx">
+</form>
+<button id="sumbitBtn">submit</button>
+
