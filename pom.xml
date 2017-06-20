@@ -29,14 +29,13 @@
         <xmemcached_version>1.4.2</xmemcached_version>
         <hsqldb_version>2.3.0</hsqldb_version>
         <mongo_java_driver>2.12.3</mongo_java_driver>
-        <spring_version>3.2.11.RELEASE</spring_version>
+        <spring_version>4.3.6.RELEASE</spring_version>
         <velocity_version>1.7</velocity_version>
-        <mybatis_version>3.2.3</mybatis_version>
-        <mybatis_spring_version>1.2.0</mybatis_spring_version>
+        <mybatis_version>3.4.3</mybatis_version>
+        <mybatis_spring_version>1.3.1</mybatis_spring_version>
         <velocity_tools>2.0</velocity_tools>
         <mysql_driver_version>5.1.5</mysql_driver_version>
         <druidVersion>1.0.12</druidVersion>
-        <jacksonVersion>2.4.2</jacksonVersion>
         <guavaVersion>18.0</guavaVersion>
         <jodatimeVersion>2.2</jodatimeVersion>
         <druid_version>1.0.24</druid_version>
@@ -187,22 +186,7 @@
                 <version>0.8.1</version>
                 <scope>test</scope>
             </dependency>
-            <!-- Jackson json-->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jacksonVersion}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jacksonVersion}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jacksonVersion}</version>
-            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -241,19 +225,7 @@
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Jackson json-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
         <!-- Logging -->
         <!-- slf4j + log4j -->
         <!-- slf4j会在程序加载的时候在classpath查找log4j.properties/log4j.xml -->
@@ -327,6 +299,13 @@
         </resources>
         <plugins>
             <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>${findbugsVersion}</version>
@@ -397,7 +376,47 @@
                     <!--</excludeRoots>-->
                 </configuration>
             </plugin>
-
         </plugins>
     </reporting>
+    <profiles>
+        <profile>
+            <id>product</id>
+            <properties>
+                <env>product</env>
+                <logLevel>ERROR</logLevel>
+                <logTarget>FILE_LOG</logTarget>
+                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
+                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
+                <jdbcUsername>root</jdbcUsername>
+                <jdbcPassword>wangzhu</jdbcPassword>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+                <logLevel>DEBUG</logLevel>
+                <logTarget>CONSOLE</logTarget>
+                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
+                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
+                <jdbcUsername>root</jdbcUsername>
+                <jdbcPassword>wangzhu</jdbcPassword>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <logLevel>DEBUG</logLevel>
+                <logTarget>CONSOLE</logTarget>
+                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
+                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
+                <jdbcUsername>root</jdbcUsername>
+                <jdbcPassword>wangzhu</jdbcPassword>
+            </properties>
+        </profile>
+    </profiles>
 </project>

@@ -63,45 +63,4 @@
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>product</id>
-            <properties>
-                <environment>product</environment>
-                <logLevel>ERROR</logLevel>
-                <logTarget>FILE_LOG</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <environment>dev</environment>
-                <logLevel>DEBUG</logLevel>
-                <logTarget>CONSOLE</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <environment>test</environment>
-                <logLevel>DEBUG</logLevel>
-                <logTarget>CONSOLE</logTarget>
-                <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                <jdbcUrl>jdbc:mysql://localhost:3306/jd</jdbcUrl>
-                <jdbcUsername>root</jdbcUsername>
-                <jdbcPassword>wangzhu</jdbcPassword>
-            </properties>
-        </profile>
-    </profiles>
 </project>
