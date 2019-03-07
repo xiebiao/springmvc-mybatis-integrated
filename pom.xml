@@ -20,7 +20,7 @@
         <xmemcached_version>1.4.2</xmemcached_version>
         <hsqldb_version>2.3.0</hsqldb_version>
         <mongo_java_driver>2.12.3</mongo_java_driver>
-        <spring_version>3.2.9.RELEASE</spring_version>
+        <spring_version>4.2.9.RELEASE</spring_version>
         <velocity_version>1.7</velocity_version>
         <mybatis_version>3.2.3</mybatis_version>
         <mybatis_spring_version>1.2.0</mybatis_spring_version>
@@ -33,7 +33,6 @@
         <!-- maven plugin -->
         <mavenCompilerPluginVersion>3.1</mavenCompilerPluginVersion>
         <mavenResourcePluginVersion>2.7</mavenResourcePluginVersion>
-        <cobertura_maven_plugin_version>2.6</cobertura_maven_plugin_version>
         <!-- test -->
         <htmlunitVersion>2.8</htmlunitVersion>
         <junit_version>4.12</junit_version>
@@ -275,29 +274,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>${findbugsVersion}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>${cobertura_maven_plugin_version}</version>
-                <!--<configuration>-->
-                <!--<instrumentation>-->
-                <!--<ignores>-->
-                <!--<ignore>com.example.boringcode.*</ignore>-->
-                <!--</ignores>-->
-                <!--<excludes>-->
-                <!--<exclude>com/example/dullcode/**/*.class</exclude>-->
-                <!--<exclude>com/example/**/*Test.class</exclude>-->
-                <!--</excludes>-->
-                <!--</instrumentation>-->
-                <!--</configuration>-->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
